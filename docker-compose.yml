@@ -1,0 +1,11 @@
+# docker-compose.yml
+version: '3.5'
+services:
+  torchserve:
+    build: .
+    ports:
+     - "8080:8080"
+     - "8081:8081"
+    command: torchserve --start --model-store model_store --models densenet161=densenet161.mar
+    volumes:
+     - ./src:/src
